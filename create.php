@@ -2,13 +2,13 @@
 
 require 'src/email.php';
 
-$mail = new cpanelEmailCreator();
+$mail = new CPANELEMAILCREATOR ();
 $mail->url = 'CPANEL_URL';
-$mail->username = 'CPANEL_USERNAME';
-$mail->password = 'CPANEL_PASSWORD';
+$mail->user = 'CPANEL_USERNAME';
+$mail->pass = 'CPANEL_PASSWORD';
 
 $login = json_decode($mail->loginCpanel());
 
-$quota = 1024; // mb
+$quota = 2048; // mb
 
 echo $mail->createEmail($login->cpanelUser, 'DOMAIN', 'USERNAME', 'PASSWORD', $quota);
